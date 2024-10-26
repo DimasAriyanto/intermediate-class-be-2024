@@ -16,7 +16,6 @@ class CheckAuthenticated
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // dd(Auth::user());
         if (!Auth::guard('sanctum')->check()) {
             return response()->json([
                 'message' => 'Anda harus login untuk mengakses halaman ini.'

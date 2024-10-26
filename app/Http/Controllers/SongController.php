@@ -42,7 +42,6 @@ class SongController extends Controller
                 'album' => $spotifyData['album']['name'],
             ]);
         } else {
-            // Jika spotify_id tidak tersedia, masukkan data lagu secara manual
             $song = Song::create([
                 'title' => $request->title,
                 'artist' => $request->artist,
