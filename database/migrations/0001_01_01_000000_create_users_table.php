@@ -13,11 +13,14 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('spotify_user_id');
-            $table->string('email')->unique();
+            $table->text('spotify_access_token')->nullable();
+            $table->text('spotify_refresh_token')->nullable();
+            $table->timestamp('token_expires_at')->nullable();
+            $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
